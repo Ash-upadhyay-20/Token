@@ -40,6 +40,3 @@ contract MyToken {
     }
 
 }
-
-# assignment2
-# assignment2
