@@ -1,25 +1,33 @@
+# MyToken
 
-// SPDX-License-Identifier: MIT
-pragma solidity 0.8.18;
+This Solidity smart contract implements a basic token called "Ashish". The contract allows for token minting and burning, while keeping track of token balances for different addresses.
 
-/*
-       REQUIREMENTS
-    1. Your contract will have public variables that store the details about your coin (Token Name, Token Abbrv., Total Supply)
-    2. Your contract will have a mapping of addresses to balances (address => uint)
-    3. You will have a mint function that takes two parameters: an address and a value. 
-       The function then increases the total supply by that number and increases the balance 
-       of the “sender” address by that amount
-    4. Your contract will have a burn function, which works the opposite of the mint function, as it will destroy tokens. 
-       It will take an address and value just like the mint functions. It will then deduct the value from the total supply 
-       and from the balance of the “sender”.
-    5. Lastly, your burn function should have conditionals to make sure the balance of "sender" is greater than or equal 
-       to the amount that is supposed to be burned.
-*/
+## Requirements
 
-License This contract is using the MIT License.
+The contract is designed to fulfill the following requirements:
 
-Prerequisites Solidity ^0.8.18
+1. **Token Details**: The contract includes public variables to store information about the token, such as the token name, token abbreviation, and the total supply.
 
-Contract Details Public variables: myToken: A string variable that stores the token name. myShort: A string variable that stores the token abbreviation. total: A uint variable that tracks the total supply of tokens. Mapping variable: balance: A mapping that associates addresses with their token balances. Mint function: The mint function takes two parameters: _add (address) and _val (uint). It increases the total supply (total) by the specified _val amount. It increases the balance of the specified address (_add) by the specified _val amount. Burn function: The burn function takes two parameters: _add (address) and _val (uint). It first checks if the balance of the specified address (_add) is greater than or equal to the specified _val. If the condition is met, it deducts the specified _val from the total supply (total) and from the balance of the specified address.
+2. **Address Balances**: The contract uses a mapping (`balance`) to associate addresses with their respective token balances.
 
-Video Walkthrough:- https://www.loom.com/share/53a00ea6b7694ea9b4396ede21ddc0f1
+3. **Mint Function**: The contract provides a `mint` function that takes an address and a value as parameters. This function increases the total token supply by the given value and updates the balance of the sender's address accordingly.
+
+4. **Burn Function**: The contract includes a `burn` function that works in the opposite way of the `mint` function. It takes an address and a value as parameters and deducts the value from the total token supply and the balance of the sender's address.
+
+5. **Safety Checks**: The `burn` function incorporates conditionals to ensure that the balance of the sender's address is greater than or equal to the amount of tokens to be burned. If the balance is insufficient, an error message is returned.
+
+## Usage
+
+1. Deploy the contract on the Ethereum network using Solidity version 0.8.18 or compatible.
+
+2. Interact with the contract using the following functions:
+
+   - `mint (address _address, uint _value)`: This function mints new tokens by increasing the total supply and the balance of the specified address. The `_address` parameter denotes the recipient's address, and `_value` represents the amount of tokens to be minted.
+
+   - `burn (address _address, uint _value)`: Use this function to burn tokens. The `_address` parameter identifies the sender's address, and `_value` specifies the amount of tokens to be burned. The function deducts the tokens from the total supply and the balance of the sender's address. If the sender's balance is insufficient, an error message is returned.
+
+## License
+
+This code is licensed under the MIT License. You can find the license text in the `SPDX-License-Identifier` comment at the beginning of the contract.
+
+**Note:** Ensure that you are using a compatible Solidity compiler version (0.8.18) or newer to compile and interact with this contract.
